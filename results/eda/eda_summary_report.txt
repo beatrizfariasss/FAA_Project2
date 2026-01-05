@@ -1,0 +1,46 @@
+
+PNEUMONIA CHEST X-RAY DATASET - EDA SUMMARY REPORT
+================================================================================
+
+1. DATASET OVERVIEW
+   - Total Images: 5,856
+   - Training Set: 5,216 images
+   - Test Set: 624 images
+   - Validation Set: 16 images
+
+2. CLASS DISTRIBUTION (Training Set)
+   - Normal: 1,341 (25.7%)
+   - Pneumonia: 3,875 (74.3%)
+   - Imbalance Ratio: 1:2.89
+
+3. IMAGE DIMENSIONS
+   - Width Range: 438 - 2752 pixels (Mean: 1449.1)
+   - Height Range: 168 - 2713 pixels (Mean: 1082.7)
+   - Aspect Ratio: 1.409 ± 0.238
+   - Recommended Resize: 224x224 (standard for transfer learning)
+
+4. PIXEL INTENSITY
+   - Normal X-Rays: Mean = 121.51, Std = 63.11
+   - Pneumonia X-Rays: Mean = 124.69, Std = 62.48
+   - Difference: 3.18 intensity units
+
+5. DATA QUALITY
+   - Total Images Checked: 5,856
+   - Corrupted Images: 0
+   - Images Too Small: 0
+   - Images Too Large: 0
+   - Unusual Aspect Ratios: 126
+
+6. RECOMMENDATIONS FOR PREPROCESSING
+   - ✓ Resize all images to 224x224 (standard for VGG16/ResNet50)
+   - ✓ Normalize pixel values to [0, 1] range
+   - ✓ Apply data augmentation (rotation, flip, zoom) to address class imbalance
+   - ✓ Consider class weighting during training (ratio 1:2.89)
+   - ✓ Create proper validation split from training data (current val set is too small)
+
+7. KEY INSIGHTS
+   - Significant class imbalance favoring pneumonia cases
+   - Variable image dimensions require standardization
+   - Pixel intensity distributions show some separation between classes
+   - Overall data quality is good with minimal corrupted images
+   - Small validation set necessitates k-fold cross-validation or larger val split
